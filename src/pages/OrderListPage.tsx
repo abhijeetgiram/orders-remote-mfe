@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+import { useTheme } from "products_shell_mfe/ThemeContext";
 import OrderCard from "../components/OrderCard";
 import { PageContainer, Heading, Grid } from "../styled/StyledComponents";
 
@@ -26,10 +28,12 @@ const mockOrders: Order[] = [
 ];
 
 const OrderListPage: React.FC = () => {
+  const { theme } = useTheme();
   const [orders] = useState<Order[]>(mockOrders);
 
   return (
     <PageContainer>
+      This is a order list in {theme} mode.
       <Heading>Order List</Heading>
       <Grid>
         {orders.map((order) => (
